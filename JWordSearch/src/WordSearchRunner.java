@@ -22,14 +22,11 @@ public class WordSearchRunner {
 	private static int counter;
 
 	public static void main(String[] args) {
+		//Get word before starting the program and getting the timestamp
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Enter your text and I will calculate the hash from it");
 		String input = keyboard.nextLine();
-
-		//Get word before calculating runtime
-
-
-		long startTime = System.nanoTime()/1000;
+		long startTime = System.nanoTime()/1000;//Start of program
 		//System.out.println("Reading library file");
 		try (Stream<String> stream = Files.lines(Paths.get("./words.txt"))) {
 			stream.forEach(line -> ProcessLine(line));
@@ -39,9 +36,8 @@ public class WordSearchRunner {
 		long stopTime = System.nanoTime()/1000;
 		//System.out.println("Reading file took "+ (stopTime-startTime) + "µs");//Print to test creation of creating the library files
 		//printHash();
-
-		//Make sure the input is in lower case without any spaces
-		input = input.toLowerCase();
+		
+		input = input.toLowerCase();//Make sure the input is in lower case without any spaces
 		input = input.trim();
 		
 		//Create an array that has the amount of all available chars in an int array of length 26
@@ -58,7 +54,6 @@ public class WordSearchRunner {
 			}
 		}
 		stopTime = System.nanoTime()/1000;//Done so save the timestamp and start telling the user what was found
-		
 		//quickPrint();
 		sortedPrint();
 		System.out.println("Found "+ wordsFound + " words");
@@ -139,6 +134,4 @@ public class WordSearchRunner {
 			counter++;
 		}
 	}
-
-
 }
