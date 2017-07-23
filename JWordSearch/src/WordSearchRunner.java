@@ -20,12 +20,13 @@ public class WordSearchRunner {
 	private static word[] library = new word[172823];//amount of words in file
 	private static ArrayList<word> wordsList = new ArrayList<word>();//Words that are possible
 	private static int counter;
+	private static String input = "";
 
 	public static void main(String[] args) {
 		//Get word before starting the program and getting the timestamp
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("Enter your text and I will calculate the hash from it");
-		String input = keyboard.nextLine();
+		input = keyboard.nextLine();
 		long startTime = System.nanoTime()/1000;//Start of program
 		//System.out.println("Reading library file");
 		try (Stream<String> stream = Files.lines(Paths.get("./words.txt"))) {
@@ -90,6 +91,9 @@ public class WordSearchRunner {
 	 * @return true if the word can be made, false if not
 	 */
 	private static boolean testWord(int[] characters, word wordToTest){
+		if (wordToTest.length>input.length()){
+			return false;
+		}
 		int i = 0;
 		int[] testArray = new int[26];
 		System.arraycopy(characters, 0, testArray, 0, 26);
