@@ -14,7 +14,7 @@ public class WordSearchRunner {
 	 * therefore the primes are ordered in order of how many times a character is used in the words.txt. so for the most used char E gets a 2 and the least used J gets 101, this limits the sizes of the numbers that are being calculated.
 	 */
 	private static int[] values= {
-		7,59,29,31,2,67,47,53,5,101,79,23,43,13,19,41,97,11,3,17,37,71,79,89,61,83
+		7,59,29,31,2,67,47,53,5,101,73,23,43,13,19,41,97,11,3,17,37,71,79,89,61,83
 	};
 	private static int count = 0;
 	private static word[] library = new word[172823];//amount of words in file
